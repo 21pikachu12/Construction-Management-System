@@ -1,0 +1,95 @@
+{% include 'header.html' %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            width: 100%;
+            margin: auto;
+            text-align: center;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-family: Arial, sans-serif;
+            background-color: #f7f6f6; /* Background color for the table */
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle effect */
+        }
+    
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #000000; /* Border color between rows */
+        }
+    
+        th {
+            background-color: #f05429; /* Background color for header cells */
+            color: rgb(255, 255, 255);
+        }
+
+        td {
+            background-color: #838383; /* Background color for header cells */
+            color: rgb(7, 7, 7);
+        }
+    
+        tr:hover {
+            background-color: #f05429; /* Background color on hover */
+        }
+    </style>
+
+
+
+
+</head>
+
+
+
+<body>
+    <div class="our_section layout_padding">
+        <div class="container">
+           <h1 class="our_text"><strong>Assigned Works</strong></h1>
+           <div class="row padding_top_0">
+    <table>
+        <tr>
+            <th>sl no</th>
+            <th>Project Name</th>
+            <th>Location</th>
+            <th>Current Address</th>
+            <th>Start Date</th>
+            <th>Plan</th>
+        </tr>
+
+        {% for i in result %}
+ 
+        <tr>
+            <th>{{i.id}}</th>
+            <td>{{i.project}}</td>
+            <td>{{i.location}}</td>
+            <td>{{i.address}}</td>
+            <td>{{i.start_date}}</td>
+            
+            <td><a href="media/{{i.pdf_file}}">{{i.pdf_file}}</a></td>
+            
+           
+        </tr>
+        {% endfor %}
+    
+
+
+
+    </table>
+</div>
+</div>
+</div>
+<!-- our service section end -->
+</body>
+</html>
+
+
+
+{% include 'footer.html' %}

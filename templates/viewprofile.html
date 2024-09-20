@@ -1,0 +1,78 @@
+{% include 'header.html' %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            width: 40%;
+            margin: auto;
+            text-align: center;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-family: Arial, sans-serif;
+            background-color: #f7f6f6; /* Background color for the table */
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle effect */
+        }
+    
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #000000; /* Border color between rows */
+        }
+    
+        th {
+            background-color: #f05429; /* Background color for header cells */
+            color: rgb(255, 255, 255);
+        }
+
+        td {
+            background-color: #838383; /* Background color for header cells */
+            color: rgb(7, 7, 7);
+        }
+    
+        tr:hover {
+            background-color: #f05429; /* Background color on hover */
+        }
+    </style>
+</head>
+    
+    <body>
+        <table  border="1" >
+    
+            {% for i in result %}
+                    <tr>
+                        
+                        <th>Full Name</th>    <td>{{i.name}}</td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>      <td>{{i.email}}</td>
+                    </tr>
+                    <tr>
+                        <th>Password</th >     <td>{{i.password}}</td>
+                    </tr>
+                    <tr>
+                        <th>mobile Number</th>  <td>{{i.number}}</td>
+                    </tr>
+                    <tr>
+                        <th>address</th>       <td>{{i.address}}</td>
+                    <tr>
+                        <th>{{request.session.usertype}}</th>              <td><a href="change/{{i.id}}">Change</a></td>
+                    </tr>
+ 
+                    {% endfor %}
+
+        </table>
+    
+    </body>
+</html>
+
+
+
+{% include 'footer.html' %}

@@ -1,0 +1,104 @@
+{% block content %}
+{% load static %}
+
+
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .invoice {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .invoice h2 {
+            margin: 0;
+            padding: 0;
+        }
+        .invoice .header {
+        display: flex;
+        justify-content: center; /* Center-align the content horizontally */
+        align-items: center; /* Center-align the content vertically */
+        flex-direction: column; /* Stack the content vertically */
+        margin-bottom: 20px;
+        }
+        .invoice .left {
+            flex: 2;
+            align-items: center;
+        }
+        .invoice .right {
+            flex: 1;
+            text-align: right;
+        }
+        .invoice .details {
+            margin-bottom: 20px;
+        }
+        .invoice .details p {
+            margin: 5px 0;
+        }
+        .invoice .items {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        .invoice .items th,
+        .invoice .items td {
+            border: 1px solid #ccc;
+            padding: 8px;
+        }
+        .invoice .items th {
+            background-color: #f4f4f4;
+        }
+        .invoice .total {
+            margin-top: 20px;
+            text-align: right;
+        }
+    </style>
+  <div class="invoice">
+    <div class="header">
+        <div>
+            <center><h2>ConstructEase</h2></center>
+            <h4>Palarivattom, Ernakulam, Kerala, PIN:634573</h4>
+        </div>
+        <h1>Invoice Bill</h1>
+    </div>
+    <div class="right">
+        <p>Date: <b>{{ current_date }}</b></p>
+    </div>
+    <div class="details">
+        <p>Name: {{ project.project }}</p>
+        <p>Location: {{ project.location }}</p>
+        <p>Address: {{ project.address }}</p>
+        <!-- You may add more project details here if needed -->
+    </div>
+    <table class="items">
+        <tr>
+            <th>Description</th>
+            <th>Date</th>
+            <th>Amount</th>
+        </tr>
+        {% for expense in expense_details %}
+        <tr>
+            <td>{{ expense.details }}</td>
+            <td>{{ expense.date }}</td>
+            <td>{{ expense.amount }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+   
+    <div class="total">
+        <h4>Total Expense Amount Till Now: {{ total_expense_amount }}</h4>
+        <h4>Total Wage Amount Till Now: {{ total_wage_amount }}</h4>
+        <h4>Grand Total: {{ grand_total }}</h4>
+        <p>SGST: 12%</p>
+        <p>CGST: 12%</p>
+    </div>
+</div>
+<a href="http://127.0.0.1:8000/index">Back to Home</a>
+{% endblock %}
+

@@ -1,0 +1,36 @@
+{% load static %}
+{% include 'header.html' %}
+
+
+<!-- contact section start -->
+<div class="contact_section contact_main">
+    <div class="container-fluid">
+       <div class="row">
+          <div class="col-md-6 padding_0">  
+             <div class="contact_bg">
+                <div class="input_main">
+                   <div class="container">
+                      <h2 class="request_text">Add Contractor</h2>
+                      
+                      <form action="subaddassign" method="POST" enctype="multipart/form-data" >
+                        {% csrf_token %}
+
+                         <select name="" id="">
+                            <option value="">Project</option>
+                            {% for i in project %}
+                            <option value="{{i.id}}">{{i.}}</option>
+                         </select>
+                      
+                      </form>
+                   </div>
+                </div>
+                
+             </div>
+          </div>
+          
+       </div>
+    </div>
+ </div>
+ <!-- contact section end -->
+
+ {% include 'footer.html' %}

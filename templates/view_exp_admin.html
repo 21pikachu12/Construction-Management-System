@@ -1,0 +1,134 @@
+{% include 'header.html' %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            width: 100%;
+            margin: auto;
+            text-align: center;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-family: Arial, sans-serif;
+            background-color: #f7f6f6; /* Background color for the table */
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle effect */
+        }
+    
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #000000; /* Border color between rows */
+        }
+    
+        th {
+            background-color: #f05429; /* Background color for header cells */
+            color: rgb(255, 255, 255);
+        }
+
+        td {
+            background-color: #838383; /* Background color for header cells */
+            color: rgb(7, 7, 7);
+        }
+    
+        tr:hover {
+            background-color: #f05429; /* Background color on hover */
+        }
+   
+    .total-amount-box {
+        background-color: lightgray;
+        padding: 10px;
+        float: right;
+        margin-top: 20px;
+        margin-left: 550px;
+    }
+
+    </style>
+
+
+
+
+</head>
+
+
+
+<body>
+    <div class="our_section layout_padding">
+        <div class="container">
+           <h1 class="our_text"><strong>Assigned Works</strong></h1>
+           <div class="row padding_top_0">
+            <a href="invoice_view/{{project.id}}" class="btn btn-primary">Generate Invoice</a>
+            <table>
+                <tr>
+                    <th>Project Id</th>
+                    <th>Project Name</th>
+                    <th>Location</th>
+                    <th>Address</th>
+                    <th>Start Date</th>
+                    <th>Expense Details</th>
+                    <th>Date</th>
+                    <th>Amount</th>
+                </tr>
+                <tr>
+                    <td>{{ project.id }}</td>
+                    <td>{{ project.project }}</td>
+                    <td>{{ project.location }}</td>
+                    <td>{{ project.address }}</td>
+                    <td>{{ project.start_date }}</td>
+                    <td></td> <!-- Empty cell for spacing -->
+                    <td></td> <!-- Empty cell for spacing -->
+                    <td></td> <!-- Empty cell for spacing -->
+                </tr>
+                {% for expense in expense_details %}
+                <tr>
+                    <td></td> <!-- Empty cell for spacing -->
+                    <td></td> <!-- Empty cell for spacing -->
+                    <td></td> <!-- Empty cell for spacing -->
+                    <td></td> <!-- Empty cell for spacing -->
+                    <td></td> <!-- Empty cell for spacing -->
+                    <td>{{ expense.details }}</td>
+                    <td>{{ expense.date }}</td>
+                    <td>{{ expense.amount }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            
+           
+            <div class="total-amount-box">
+                <h2>Estimate Amount: {{ project.estimated_price }}</h2>
+                <h2>Total Expense Amount Till Now: {{ total_expense_amount }}</h2>
+                <h2>Total Wage Amount Till Now: {{ total_wage_amount }}</h2>
+                <h2>Grand Total: {{ grand_total }}</h2>
+            </div>
+            
+            <table>
+                <!-- Table headers for wage details -->
+                <tr>
+                    <th>Worker</th>
+                    <th>Date</th>
+                    <th>Amount</th>
+                </tr>
+                {% for wage in wage_details %}
+                <tr>
+                    <td>{{ wage.worker.name }}</td>
+                    <td>{{ wage.date }}</td>
+                    <td>{{ wage.amount }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+</div>
+</div>
+</div>
+<!-- our service section end -->
+</body>
+</html>
+
+
+
+{% include 'footer.html' %}

@@ -1,0 +1,57 @@
+{% load static %}
+{% include 'header.html' %}
+
+
+<!-- contact section start -->
+<div class="contact_section contact_main">
+    <div class="container-fluid">
+       <div class="row">
+          <div class="col-md-6 padding_0">  
+             <div class="contact_bg">
+                <div class="input_main">
+                   <div class="container">
+                      <h2 class="request_text">Add Project</h2>
+                      
+                      <form action="addproject" method="POST" enctype="multipart/form-data" >
+                        {% csrf_token %}
+
+                         <div class="form-group">
+                            <input type="text" class="email-bt" placeholder="Project Name" name="project">
+                         </div>
+                         <div class="form-group">
+                            <input type="text" class="email-bt" placeholder="Location" required name="location">
+                         </div>
+                         <div class="form-group">
+                            <textarea type="text" class="form-control" rows="4" placeholder="Current Address" required name="address"></textarea>
+                         </div>
+                         <div class="form-group">
+                           <label for="">Start Date</label>
+                            <input type="date" class="email-bt" placeholder="Count" required name="start_date">
+                         </div>
+                         <div class="form-group">
+                           <label for="">Estimate Price</label>
+                            <input type="text" class="email-bt" placeholder="Estimate Price" required name="estimated_price">
+                         </div>
+                         <div class="form-group">
+                              <textarea name="description" id="" class="form-control" placeholder="Description" cols="70" rows="5"></textarea>                        </div>
+                         <div>
+                            <input type="file" name="pdf_file" class="form-control" accept="" required />
+                        </div><br>
+                         <div class="form-group">
+                            <button  class="form-control btn btn-primary" type="submit">SUBMIT</button>
+                        </div>
+
+                      
+                      </form>
+                   </div>
+                </div>
+                
+             </div>
+          </div>
+          
+       </div>
+    </div>
+ </div>
+ <!-- contact section end -->
+
+ {% include 'footer.html' %}

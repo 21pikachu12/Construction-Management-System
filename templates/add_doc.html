@@ -1,0 +1,57 @@
+{% load static %}
+{% include 'header.html' %}
+
+
+<!-- contact section start -->
+<div class="contact_section contact_main">
+    <div class="container-fluid">
+       <div class="row">
+          <div class="col-md-6 padding_0">  
+             <div class="contact_bg">
+                <div class="">
+                   <div class="">
+                      <h2 class="request_text">Add Project  Documents</h2>
+                      
+                      <form action="add_doc_ins" method="POST" enctype="multipart/form-data" >
+                        {% csrf_token %}
+
+                         <div class="form-group">
+                           <label for=""> Date</label>
+                            <input type="text" class="email-bt" readonly value="{{project.project}}" placeholder=""  name="name">
+                            <input type="hidden" class="email-bt" placeholder="" value="{{project.id}}" required name="pro_id">
+                         </div>
+                         <div>
+                            <label for="">Contract file</label>
+                            <input type="file" name="contract_file" class="form-control" accept="" required />
+                        </div>
+                        <div>
+                            <label for="">Permit file</label>
+                            <input type="file" name="permit_file" class="form-control" accept="" required />
+                        </div>
+                        <div>
+                            <label for="">Design Plan</label>
+                            <input type="file" name="design_file" class="form-control" accept="" required />
+                        </div>
+                        <div>
+                            <label for="">Others</label>
+                            <input type="file" name="other" class="form-control" accept="" required />
+                        </div>
+                         <br>
+                         <div class="form-group">
+                            <button  class="form-control btn btn-primary" type="submit">SUBMIT</button>
+                        </div>
+
+                      
+                      </form>
+                   </div>
+                </div>
+                
+             </div>
+          </div>
+          
+       </div>
+    </div>
+ </div>
+ <!-- contact section end -->
+
+ {% include 'footer.html' %}

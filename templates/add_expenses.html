@@ -1,0 +1,49 @@
+{% load static %}
+{% include 'header.html' %}
+
+
+<!-- contact section start -->
+<div class="contact_section contact_main">
+    <div class="container-fluid">
+       <div class="row">
+          <div class="col-md-6 padding_0">  
+             <div class="contact_bg">
+                <div class="input_main">
+                   <div class="container">
+                      <h2 class="request_text">Add Project Daily Expense</h2>
+                      
+                      <form action="addproject_expense" method="POST" enctype="multipart/form-data" >
+                        {% csrf_token %}
+
+                         
+                         <div class="form-group">
+                            <textarea type="text" class="form-control" rows="4" placeholder="Details" required name="details"></textarea>
+                         </div>
+                         <div class="form-group">
+                           <label for=""> Date</label>
+                            <input type="date" class="email-bt" placeholder="" required name="date">
+                            <input type="hidden" class="email-bt" placeholder="" value="{{result.id}}" required name="pro_id">
+                         </div>
+                         <div class="form-group">
+                           <label for=""> Total Amount</label>
+                            <input type="number" class="email-bt" placeholder="Total Amount" required name="amount">
+                         </div>
+                         <br>
+                         <div class="form-group">
+                            <button  class="form-control btn btn-primary" type="submit">SUBMIT</button>
+                        </div>
+
+                      
+                      </form>
+                   </div>
+                </div>
+                
+             </div>
+          </div>
+          
+       </div>
+    </div>
+ </div>
+ <!-- contact section end -->
+
+ {% include 'footer.html' %}
